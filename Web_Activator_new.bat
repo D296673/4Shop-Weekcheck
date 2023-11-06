@@ -1,8 +1,6 @@
 @echo off
 title Website Installation
 set "filepath=%cd%"
-cd C:\ProgramData\Microsoft\Windows\Start Menu\Programs\laragon
-start Laragon.lnk
 echo Voordat je verder gaat! Zet laragon eerst aan.
 echo Welke versie van laragon gebruik je?
 echo 1. Oude versie

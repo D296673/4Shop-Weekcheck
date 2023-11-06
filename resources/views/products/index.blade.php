@@ -7,17 +7,16 @@
                 <select name="type" id="type">
                     <option value="">-kies een type-</option>
 					@foreach($categories as $category)
-						<option value="{{$category}}">{{ $category->name }}</option>
+						<option value="{{$category->name}}">{{ $category->name }}</option>
 					@endforeach
-                    
-                    
                 </select>
-                <input type="submit" value="Filter">
+			</form>
         </div>
 
 	<div class="products">
 		@foreach($products as $product)
-			<a class="product-row no-link" href="{{ route('products.show', $product) }}">
+			<a class="product-row no-link product-List" href="{{ route('products.show', $product) }}">
+				<p class="hidden">{{$product->Category()->first()->name}}</p>
 				<img src="{{ url($product->image ?? 'img/placeholder.jpg') }}" alt="{{ $product->title }}" class="rounded">
 				<div class="product-body">
 					<div>
@@ -37,5 +36,26 @@
 			</a>
 		@endforeach
 	</div>
+
+	<script>
+		var select = document.getElementById("type");
+		const products = document.querySelectorAll(".product-List");
+
+		select.addEventListener("change", function(){
+			var selectOption = select.options[select.selectedIndex].text;
+
+			products.forEach(element => {
+				const child = element.firstElementChild;
+
+				if(child.textContent != selectOption && selectOption != "-kies een type-"){
+					element.classList.add("hidden");
+				}
+				else{
+					element.classList.remove("hidden");
+				}				
+			});
+		});
+	</script> 
+
 
 @endsection
