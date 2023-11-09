@@ -13,6 +13,7 @@
 		<tr>
 			<th>Titel</th>
 			<th>Prijs</th>
+			<th>Korting</th>
 			<th>Category</th>
 			<th colspan="4">&nbsp;</th>
 		</tr>
@@ -20,6 +21,9 @@
 			<tr>
 				<td>{{ $product->title }}</td>
 				<td>&euro;{{ $product->price }}</td>
+				
+				<td>&euro;{{ $product->discount }}</td>
+
 				<td>{{ $product->category->name }}</td>
 				<td>
 					@if($product->active)

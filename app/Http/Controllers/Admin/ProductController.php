@@ -111,6 +111,7 @@ class ProductController extends Controller
         $this->validate(request(), [
             'title' => 'required',
             'price' => 'required|numeric',
+            'discount' => 'required|numeric',
             'active' => 'required|boolean',
             'leiding' => 'required|boolean',
             'image' => 'nullable|image',
@@ -119,6 +120,7 @@ class ProductController extends Controller
 
         $product->title = $request->title; 
         $product->price = $request->price;
+        $product->discount = $request->discount;
         $product->active = $request->active;
         $product->leiding = $request->leiding;
         $product->description = $request->description;

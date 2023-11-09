@@ -106,4 +106,11 @@ class OrderController extends Controller
 
         return $cart;
     }
+    public function toggleDelivery(Order $order)
+    {   
+    $order->delivered = !$order->delivered;
+    $order->save();
+
+    return redirect()->route('admin.orders.index');
+    }
 }

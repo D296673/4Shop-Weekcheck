@@ -21,6 +21,15 @@
 				<input type="number" min="0" id="price" name="price" class="form-control" value="{{ old('price', $product->price) }}">
 			</div>
 		</div>
+		<div class="form-group">
+			<label for="price">Korting</label>
+			<div class="input-group mb-2">
+		        <div class="input-group-prepend">
+		        	<div class="input-group-text">&euro;</div>
+		        </div>
+				<input type="number" min="0" id="discount" name="discount" class="form-control" value="{{ old('discount', $product->discount) }}">
+			</div>
+		</div>
 		<div class="form-group my-4">
 			<div class="form-check form-check-inline">
 				<input class="form-check-input" type="radio" name="active" id="active1" value="1" @if(old('active', $product->active)) checked @endif>
